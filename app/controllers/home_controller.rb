@@ -1,16 +1,9 @@
 class HomeController < ApplicationController
-  def top
-  end
+  def top; end
 
-  def terms
+  def terms; end
 
-  end
+  def privacy; end
 
-  def privacy
-
-  end
-
-  def about
-
-  end
+  def about; end
 end
