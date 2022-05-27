@@ -4,7 +4,7 @@
   <% end %>
   <% if user_signed_in? %>
     <div class="navbar-nav ml-auto d-block d-lg-none">
-      <%= link_to root_path do %>
+      <%= link_to mypage_users_path do %>
         <div class="flex-column text-center">
           <i class="fas fa-user fa-2x"></i>
           <p class="text-nowrap mb-0">マイページ</p>
@@ -51,7 +51,7 @@
   </div>
   <% if user_signed_in? %>
     <div class="navbar-nav mr-auto d-none d-lg-block">
-      <%= link_to root_path do %>
+      <%= link_to mypage_users_path do %>
         <div class="flex-column mx-3 text-center">
           <i class="fas fa-user fa-2x"></i>
           <p class="text-nowrap mb-0">マイページ</p>
