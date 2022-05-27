@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :admins
   root 'home#top'
   get 'terms', to: 'home#terms'
   get 'privacy', to: 'home#privacy'
   get 'about', to: 'home#about'
+
+  devise_for :admins, :controllers => {
+    :sessions => 'admins/sessions'
+  }
+
+  devise_scope :admin do
+    get "dashboard", :to => "dashboard#index"
+    get "dashboard/login", :to => "admins/sessions#new"
+    post "dashboard/login", :to => "admins/sessions#create"
+    delete "dashboard/logout", :to => "admins/sessions#destroy"
+  end
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
@@ -29,6 +39,5 @@ Rails.application.routes.draw do
       put "mypage/password", :to => "users#update_password"
     end
   end
-  get "dashboard", :to => "dashboard#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
