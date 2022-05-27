@@ -14,8 +14,15 @@
     <header>
       <%= render 'layouts/header'%>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if flash.present? %>
+      <div class="flash">
+        <% flash.each do |key, value| %>
+          <div class="<%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
     <%= yield %>
     <footer>
     <%= render 'layouts/footer'%>
