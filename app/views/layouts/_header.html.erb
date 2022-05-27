@@ -1,97 +1,87 @@
 <nav class="navbar navbar-light fixed-top shadow navbar-expand-lg">
-
   <%= link_to root_path, class: "navbar-brand" do %>
-
     <h1>ICHIGO大福</h1>
-
   <% end %>
-
-  <div class="navbar-nav ml-auto d-block d-lg-none">
-
-    <%= link_to root_path do %>
-
-      <div class="flex-column text-center">
-
-        <i class="fas fa-calendar-check fa-2x"></i>
-
-        <p class="text-nowrap mb-0">Web予約</p>
-
-      </div>
-
-    <% end %>
-
-  </div>
-
-  <div class="navbar-nav d-block d-lg-none">
-
-    <%= link_to root_path do %>
-
-      <div class="flex-column mx-3 text-center">
-
-        <i class="fas fa-sign-in-alt fa-2x"></i>
-
-        <p class="text-nowrap mb-0">ログイン</p>
-
-      </div>
-
-    <% end %>
-
-  </div>
-
+  <% if user_signed_in? %>
+    <div class="navbar-nav ml-auto d-block d-lg-none">
+      <%= link_to mypage_users_path do %>
+        <div class="flex-column text-center">
+          <i class="fas fa-user fa-2x"></i>
+          <p class="text-nowrap mb-0">マイページ</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="navbar-nav d-block d-lg-none">
+      <%= link_to destroy_user_session_path , method: :delete do %>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-sign-out-alt fa-2x"></i>
+          <p class="text-nowrap mb-0">ログアウト</p>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="navbar-nav ml-auto d-block d-lg-none">
+      <%= link_to new_user_registration_path do %>
+        <div class="flex-column text-center">
+          <i class="fas fa-user-plus fa-2x"></i>
+          <p class="text-nowrap mb-0">新規登録</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="navbar-nav d-block d-lg-none">
+      <%= link_to new_user_session_path do %>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-sign-in-alt fa-2x"></i>
+          <p class="text-nowrap mb-0">ログイン</p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-
     <span class="navbar-toggler-icon"></span>
-
   </button>
-
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-
     <ul class="navbar-nav mr-auto ml-3">
-
       <li class= "nav-item"><%= link_to "HOME", root_path, class: "dropdown-item" %></li>
-
       <li><%= link_to "NEWS", root_path, class: "dropdown-item" %></li>
-
       <li><%= link_to "MENU", root_path, class: "dropdown-item" %></li>
-
       <li><%= link_to "ABOUT US",about_path , class: "dropdown-item" %></li>
-
       <li><%= link_to "お問い合わせ", root_path, class: "dropdown-item" %></li>
-
     </ul>
-
   </div>
-
-  <div class="navbar-nav mr-auto d-none d-lg-block">
-
-    <%= link_to root_path do %>
-
-      <div class="flex-column mx-3 text-center">
-
-        <i class="fas fa-calendar-check fa-2x"></i>
-
-        <p class="text-nowrap mb-0">Web予約</p>
-
-      </div>
-
-    <% end %>
-
-  </div>
-
-  <div class="navbar-nav mr-auto d-none d-lg-block">
-
-    <%= link_to root_path do %>
-
-      <div class="flex-column mx-3 mb-0 text-center">
-
-        <i class="fas fa-sign-in-alt fa-2x"></i>
-
-        <p class="text-nowrap mb-0">ログイン</p>
-
-      </div>
-
-    <% end %>
-
-  </div>
-
-</nav> 
+  <% if user_signed_in? %>
+    <div class="navbar-nav mr-auto d-none d-lg-block">
+      <%= link_to mypage_users_path do %>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-user fa-2x"></i>
+          <p class="text-nowrap mb-0">マイページ</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="navbar-nav mr-auto d-none d-lg-block">
+      <%= link_to destroy_user_session_path , method: :delete do %>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-sign-out-alt  fa-2x"></i>
+          <p class="text-nowrap mb-0">ログアウト</p>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="navbar-nav mr-auto d-none d-lg-block">
+      <%= link_to new_user_registration_path do %>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-user-plus fa-2x"></i>
+          <p class="text-nowrap mb-0">新規登録</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="navbar-nav mr-auto d-none d-lg-block">
+      <%= link_to new_user_session_path do %>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-sign-in-alt  fa-2x"></i>
+          <p class="text-nowrap mb-0">ログイン</p>
+        </div>
+      <% end %>
+    </div>
+  <%end %>
+</nav>
