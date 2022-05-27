@@ -1,2 +1,29 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+body {
+  background-color: #f9fcfb;
+  padding-top: 76px;
+  font-family: Lato, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.error {
+  color: #ea352d;
+  line-height: 1.5;
+  font-size: 14px;
+  margin-top: 8px;
+  border-color: #ea352d;
+}
