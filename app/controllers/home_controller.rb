@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def top
   end
-  
+
   def terms
 
   end
@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 
   end
 
-  def shop
+  def about
 
   end
 end
