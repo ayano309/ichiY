@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     delete "dashboard/logout", :to => "admins/sessions#destroy"
   end
 
+  namespace :dashboard do
+    resources :users, only: [:index, :destroy]
+  end
+
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
