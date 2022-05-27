@@ -1,39 +1,39 @@
 <div class="container">
-  <h2>Sign Up</h2>
+  <h2>新規会員登録</h2>
 
   <%= form_with model: @user, url: user_registration_path do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <%= f.label :name, "お名前" %><br>
+      <%= f.text_field :name ,class: "text"%>
     </div>  
 
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :email,"メールアドレス"%><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "text"%>
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :password,"パスワード" %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= @minimum_password_length %>桁~10桁以下)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password",class: "text" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.label :password_confirmation, "パスワード(確認)"%><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "text" %>
     </div>
 
     <div class="field">
-      <%= f.label :phone %><br>
-      <%= f.text_field :phone %>
+      <%= f.label :phone,"電話番号" %><br>
+      <%= f.text_field :phone ,class: "text"%>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up"  ,class: "btn btn-success" %>
+      <%= f.submit "Sign up"  ,class: "btn btn-log" %>
     </div>
   <% end %>
 

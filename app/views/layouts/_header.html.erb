@@ -4,32 +4,32 @@
   <% end %>
   <% if user_signed_in? %>
     <div class="navbar-nav ml-auto d-block d-lg-none">
-      <%= link_to destroy_user_session_path do %>
+      <%= link_to root_path do %>
         <div class="flex-column text-center">
+          <i class="fas fa-user fa-2x"></i>
+          <p class="text-nowrap mb-0">マイページ</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="navbar-nav d-block d-lg-none">
+      <%= link_to destroy_user_session_path , method: :delete do %>
+        <div class="flex-column mx-3 text-center">
           <i class="fas fa-sign-out-alt fa-2x"></i>
           <p class="text-nowrap mb-0">ログアウト</p>
         </div>
       <% end %>
     </div>
-    <div class="navbar-nav ml-auto d-block d-lg-none">
-      <%= link_to root_path do %>
-        <div class="flex-column text-center">
-          <i class="fas fa-calendar-check fa-2x"></i>
-          <p class="text-nowrap mb-0">マイページ</p>
-        </div>
-      <% end %>
-    </div>
   <% else %>
     <div class="navbar-nav ml-auto d-block d-lg-none">
-      <%= link_to root_path do %>
+      <%= link_to new_user_registration_path do %>
         <div class="flex-column text-center">
-          <i class="fas fa-calendar-check fa-2x"></i>
-          <p class="text-nowrap mb-0">Web予約</p>
+          <i class="fas fa-user-plus fa-2x"></i>
+          <p class="text-nowrap mb-0">新規登録</p>
         </div>
       <% end %>
     </div>
     <div class="navbar-nav d-block d-lg-none">
-      <%= link_to  new_user_session_path do %>
+      <%= link_to new_user_session_path do %>
         <div class="flex-column mx-3 text-center">
           <i class="fas fa-sign-in-alt fa-2x"></i>
           <p class="text-nowrap mb-0">ログイン</p>
@@ -49,29 +49,39 @@
       <li><%= link_to "お問い合わせ", root_path, class: "dropdown-item" %></li>
     </ul>
   </div>
-  <div class="navbar-nav mr-auto d-none d-lg-block">
-    <%= link_to root_path do %>
-      <div class="flex-column mx-3 text-center">
-        <i class="fas fa-calendar-check fa-2x"></i>
-        <p class="text-nowrap mb-0">Web予約</p>
-      </div>
-    <% end %>
-  </div>
-  <div class="navbar-nav mr-auto d-none d-lg-block">
-    <% if user_signed_in? %>
+  <% if user_signed_in? %>
+    <div class="navbar-nav mr-auto d-none d-lg-block">
       <%= link_to root_path do %>
-        <div class="flex-column text-center">
-          <i class="fas fa-calendar-check fa-2x"></i>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-user fa-2x"></i>
           <p class="text-nowrap mb-0">マイページ</p>
         </div>
       <% end %>
-    <% else %>
+    </div>
+    <div class="navbar-nav mr-auto d-none d-lg-block">
+      <%= link_to destroy_user_session_path , method: :delete do %>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-sign-out-alt  fa-2x"></i>
+          <p class="text-nowrap mb-0">ログアウト</p>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="navbar-nav mr-auto d-none d-lg-block">
+      <%= link_to new_user_registration_path do %>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-user-plus fa-2x"></i>
+          <p class="text-nowrap mb-0">新規登録</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="navbar-nav mr-auto d-none d-lg-block">
       <%= link_to new_user_session_path do %>
-        <div class="flex-column mx-3 mb-0 text-center">
-          <i class="fas fa-sign-in-alt fa-2x"></i>
+        <div class="flex-column mx-3 text-center">
+          <i class="fas fa-sign-in-alt  fa-2x"></i>
           <p class="text-nowrap mb-0">ログイン</p>
         </div>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <%end %>
 </nav>
