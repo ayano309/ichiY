@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :users, only: [:index, :destroy]
-    resources :products, except: [:show]
+    resources :items, except: [:show]
   end
 
   devise_for :users, :controllers => {
