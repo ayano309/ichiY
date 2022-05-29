@@ -1,5 +1,7 @@
 class Dashboard::ReservationsController < ApplicationController
-  def index; end
+  def index
+    @reservations = Reservation.all.order(capacity_id: 'desc')
+  end
 
   def show; end
 
