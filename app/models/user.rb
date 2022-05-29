@@ -25,6 +25,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 
+  has_many :reservations
+
   validates :name, presence: true, length: { in: 2..20 }
   validates :email, presence: true
   validates :phone, presence: true

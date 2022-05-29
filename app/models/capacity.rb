@@ -9,4 +9,5 @@
 #  updated_at     :datetime         not null
 #
 class Capacity < ApplicationRecord
+  has_many :reservations
 end

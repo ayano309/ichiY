@@ -27,4 +27,20 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :capacity
+
+  enum reservation_time: {
+    '11:00': 0,
+    '11:15': 1,
+    '11:30': 2,
+    '11:45': 3,
+    '12:00': 4,
+    '12:15': 5,
+    '12:30': 6
+  }
+
+  enum reservation_status: {
+    visiting: 0,
+    visited: 1,
+    cancel: 2
+  }
 end
