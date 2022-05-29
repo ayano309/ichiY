@@ -5,8 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-30.times do |i|
-  date = Date.today + i
-  Capacity.create(start_time: date)
-end
-puts 'Capacityのテストデータ挿入'

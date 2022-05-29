@@ -1,0 +1,62 @@
+<div class="container p-3 p-md-4 p-lg-5">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <div class="my-3">
+        <h2>予約詳細</h2>
+      </div>
+      <div class="text-right mb-3">
+        <%= link_to edit_dashboard_reservation_path(@reservation), class: "btn btn-success" do %>
+          <i class="far fa-edit"></i>予約変更
+        <% end %>
+        <%= link_to dashboard_reservation_path(@reservation), method: :delete, data: { confirm: "本当に削除してもよろしいですか"}, class: "btn btn-danger" do %>
+          <i class="far fa-trash-alt"></i>削除
+        <% end %>
+      </div>
+      <table class="table table-bordered bg-white">
+        <tr>
+          <th scope="row" class="text-nowrap">予約ID</th>
+          <td><%= @reservation.id %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-nowrap">日にち</th>
+          <td><%= l @reservation.reservation_day, format: :long %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-nowrap">時間</th>
+          <td><%= @reservation.reservation_time %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-nowrap">人数</th>
+          <td><%= @reservation.number_of_items %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-nowrap">名前</th>
+          <td><%= @reservation.name %>様</td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-nowrap">メールアドレス</th>
+          <td><%= @reservation.email %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-nowrap">電話番号</th>
+          <td><%= @reservation.phone %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-nowrap">ステータス</th>
+          <td><%= @reservation.reservation_status_i18n %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-nowrap">予約アカウント</th>
+          <% if @reservation.user.present? %>
+            <td><%= link_to "#{@reservation.user.name}", dashboard_user_path(@reservation.user) %>様</td>
+          <% else %>
+            <td>ゲスト</td>
+          <% end %>
+        </tr>
+      </table>
+      <div class="text-center mb-3">
+        <%= link_to "一覧へ", dashboard_reservations_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

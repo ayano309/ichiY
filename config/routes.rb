@@ -44,5 +44,5 @@ Rails.application.routes.draw do
       put 'mypage/password', to: 'users#update_password'
     end
   end
-  resources :reservations, only: %i[index new create]
+  resources :reservations, only: %i[new create]
 end
