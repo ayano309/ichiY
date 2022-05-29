@@ -23,7 +23,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable
 
   has_many :reservations
 
@@ -41,10 +41,10 @@ class User < ApplicationRecord
     result
   end
 
-  scope :search_information, -> (keyword) { 
-    where("name LIKE :keyword OR id LIKE :keyword OR email LIKE :keyword OR phone LIKE :keyword", keyword: "%#{keyword}%")
+  scope :search_information, lambda { |keyword|
+    where('name LIKE :keyword OR id LIKE :keyword OR email LIKE :keyword OR phone LIKE :keyword', keyword: "%#{keyword}%")
   }
-  #退会フラグ
+  # 退会フラグ
   def switch_flg(column_of_obj)
     column_of_obj ? false : true
   end

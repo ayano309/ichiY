@@ -1,6 +1,6 @@
 class Dashboard::UsersController < ApplicationController
   before_action :authenticate_admin!
-  layout "dashboard/dashboard"
+  layout 'dashboard/dashboard'
 
   def index
     if params[:keyword].present?
@@ -11,7 +11,7 @@ class Dashboard::UsersController < ApplicationController
       @users = User.all.order(created_at: :desc).page(params[:page])
     end
   end
-  
+
   def destroy
     user = User.find(params[:id])
     # userの退会フラグを渡す

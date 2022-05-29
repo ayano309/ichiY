@@ -25,14 +25,14 @@
 #  user_id      (user_id => users.id)
 #
 class Reservation < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :capacity
   validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true, length: { maximum: 256 }
   validates :phone
   validates :number_of_items, presence: true
   validates :reservation_time, presence: true
-  validates :reservations_status, presence: true
+  validates :reservation_status, presence: true
   validates :capacity_id, presence: true
 
   validate :date_before_today
