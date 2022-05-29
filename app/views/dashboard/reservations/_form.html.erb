@@ -1,0 +1,36 @@
+<%= form_with model: @reservation, url: dashboard_reservation_path, local: true, id: "reservation_form" do |f| %>
+  <%= f.hidden_field :user_id, value: current_user&.id %>
+  <div class="form-group">
+    <%= f.label :name %> *必須
+    <%= f.text_field :name, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %> *必須
+    <%= f.email_field :email, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone %> *必須
+    <%= f.telephone_field :phone, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :reservation_day %>
+    <%= f.date_field :reservation_day, class: "form-control", required: true, min: Date.tomorrow, max: Date.today.since(1.month) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label  :reservation_time %>
+    <%= f.select  :reservation_time, Reservation.reservation_times_i18n.invert, {include_blank: "予約する時間を選択してください"}, {class: "form-control", required: true} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :number_of_items %>
+    <%= f.select :number_of_items,[1,2,3,4,5,6,7,8,9,10], {include_blank: "予約数を選択して下さい"}, {class: "form-control", required: true} %>
+  </div>
+
+  <div class="actions text-center mb-3">
+    <%= f.submit "変更する", class: "btn btn-success w-100" %>
+  </div>
+<% end %>

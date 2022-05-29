@@ -34,8 +34,8 @@ class Reservation < ApplicationRecord
   validates :reservation_status, presence: true
 
   validate :date_before_today
-  validate :reservation_day_not_sunday
-  validate :reservation_day_not_monday
+  validate :reservation_day_not_saturday
+  validate :reservation_day_not_wednesday
 
   enum reservation_time: {
     '11:00': 0,
@@ -58,11 +58,11 @@ class Reservation < ApplicationRecord
     errors.add(:reservation_day, 'は過去の日付は選択できません') if reservation_day < Time.zone.today
   end
 
-  def reservation_day_not_sunday
-    errors.add(:reservation_day, 'は定休日(月曜日・日曜日)以外を選択してください') if reservation_day.sunday?
+  def reservation_day_not_saturday
+    errors.add(:reservation_day, 'は定休日(水曜日・土曜日)以外を選択してください') if reservation_day.saturday?
   end
 
-  def reservation_day_not_monday
-    errors.add(:reservation_day, 'は定休日(月曜日・日曜日)以外を選択してください') if reservation_day.monday?
+  def reservation_day_not_wednesday
+    errors.add(:reservation_day, 'は定休日(水曜日・土曜日)以外を選択してください') if reservation_day.wednesday?
   end
 end

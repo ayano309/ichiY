@@ -12,7 +12,8 @@ ja:
         email: メールアドレス
         phone: 電話番号
         number_of_items: 予約数
-        reservation_time: ご予約日
+        reservation_day: 予約日
+        reservation_time: 予約時間
         reservation_status: 予約ステータス
         start_time: 予約日
         capacity_id: 日付ID
