@@ -26,10 +26,10 @@
   </div>
   <div class="form-group">
     <div class="text-left mb-1">
-      <%= f.label :start_time %>
+      <%= f.label :reservation_day %>
     </div>
     <div class="mb-3">
-      <%= f.date_field :capacity_id, class: "form-control", required: true, min: Date.tomorrow, max: Date.today.since(1.month) %>
+      <%= f.date_field :reservation_day, class: "form-control", required: true, min: Date.tomorrow, max: Date.today.since(1.month) %>
     </div>
   </div>
   <div class="form-group">
@@ -37,7 +37,7 @@
       <%= f.label  :reservation_time %>
     </div>
     <div class="mb-3">
-      <%= f.select  :reservation_time, Reservation.reservation_time_i18n.invert, {include_blank: "予約する時間を選択してください"}, {class: "form-control", required: true} %>
+      <%= f.select  :reservation_time, Reservation.reservation_times_i18n.invert, {include_blank: "予約する時間を選択してください"}, {class: "form-control", required: true} %>
     </div>
   </div>
   <div class="form-group">

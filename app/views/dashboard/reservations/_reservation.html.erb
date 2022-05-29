@@ -1,6 +1,6 @@
 <tr>
   <td class="text-nowrap">
-    <%= l reservation.capacity.start_time, format: :short %>
+    <%= l reservation.reservation_day, format: :short %>
   </td>
   <td class="text-nowrap">
     <%= reservation.reservation_time %>
@@ -9,17 +9,17 @@
     <%= reservation.name %>
   </td>
   <td class="text-nowrap">
-    <%= reservation.number_of_people %>
+    <%= reservation.number_of_items %>
   </td>
   <td class="text-nowrap">
     <%= reservation.reservation_status_i18n %>
   </td>
   <td class="text-nowrap">
-    <%= link_to admin_reservation_path(reservation), class: "btn btn-info" do %>
-      <i class="fas fa-search-plus"></i>詳細
+    <%= link_to dashboard_reservation_path(reservation), class: "btn btn-info" do %>
+      詳細
     <% end%>
-    <%= link_to edit_admin_reservation_path(reservation), class: "btn btn-success" do %>
-      <i class="far fa-edit"></i>変更
+    <%= link_to edit_dashboard_reservation_path(reservation), class: "btn btn-success" do %>
+      変更
     <% end%>
   </td>
 </tr>
