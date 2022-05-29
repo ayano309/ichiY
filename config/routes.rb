@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     resources :users, only: %i[index destroy]
     resources :items, except: [:show]
+    resources :reservations
   end
 
   devise_for :users, controllers: {
