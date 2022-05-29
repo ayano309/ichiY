@@ -7,9 +7,19 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     attributes:
-      article:
-        title: 'タイトル'
-        content: '内容'
+      reservation:
+        name: お名前
+        email: メールアドレス
+        phone: 電話番号
+        number_of_items: 予約数
+        reservation_time: ご予約日
+        reservation_status: 予約ステータス
+        start_time: 予約日
+        capacity_id: 日付ID
+        user_id: ユーザーID
+      capacity:
+        start_time: 予約日
+        remaining_item: 予約可能数
   date:
     abbr_day_names:
     - 日
