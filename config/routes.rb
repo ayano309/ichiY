@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show destroy]
     resources :items, except: [:show]
     resources :reservations,only: %i[index show edit update destroy]
+    patch '/reservations/cancel/:id', to: 'reservations#cancel'
   end
 
   devise_for :users, controllers: {

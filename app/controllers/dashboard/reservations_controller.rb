@@ -1,6 +1,6 @@
 class Dashboard::ReservationsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_reservation, only: %i[show edit update destroy]
+  before_action :set_reservation, only: %i[show edit update destroy cancel]
   layout 'dashboard/dashboard'
   def index
     @reservations = Reservation.all.order(capacity_id: 'desc')
@@ -23,6 +23,15 @@ class Dashboard::ReservationsController < ApplicationController
   def destroy
     @reservation.destroy!
     redirect_to dashboard_reservations_path, notice: '削除に成功しました'
+  end
+
+  def cancel
+    if @reservation.update!(reservation_status: 'cancel')
+      redirect_to dashboard_reservations_path, notice: 'キャンセルが完了しました'
+    else
+      flash.now[:error] = 'キャンセルできませんでした'
+      render :show
+    end
   end
 
   private

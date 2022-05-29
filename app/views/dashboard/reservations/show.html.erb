@@ -6,10 +6,13 @@
       </div>
       <div class="text-right mb-3">
         <%= link_to edit_dashboard_reservation_path(@reservation), class: "btn btn-success" do %>
-          <i class="far fa-edit"></i>予約変更
+          予約変更
+        <% end %>
+        <%= link_to "/dashboard/reservations/cancel/#{@reservation.id}", method: :patch, data: {confirm: "本当にキャンセルしてもよろしいですか?"}, class: "btn btn-warning" do %>
+        キャンセル
         <% end %>
         <%= link_to dashboard_reservation_path(@reservation), method: :delete, data: { confirm: "本当に削除してもよろしいですか"}, class: "btn btn-danger" do %>
-          <i class="far fa-trash-alt"></i>削除
+          削除
         <% end %>
       </div>
       <table class="table table-bordered bg-white">
