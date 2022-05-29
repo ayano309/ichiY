@@ -1,0 +1,19 @@
+<tr>
+  <td class="text-nowrap">
+    <%= l reservation.reservation_day, format: :long%>
+  </td>
+  <td class="text-nowrap">
+    <%= reservation.reservation_time %>
+  </td>
+  <td class="text-nowrap">
+    <%= reservation.number_of_items %>個
+  </td>
+  <td class="text-nowrap">
+    <%= reservation.reservation_status_i18n %>
+  </td>
+  <td class="text-nowrap">
+    <%= link_to dashboard_reservation_path(reservation), class: "btn btn-info" do %>
+      詳細
+    <% end%>
+  </td>
+  </tr>

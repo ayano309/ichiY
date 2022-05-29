@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   namespace :dashboard do
-    resources :users, only: %i[index destroy]
+    resources :users, only: %i[index show destroy]
     resources :items, except: [:show]
     resources :reservations
   end
