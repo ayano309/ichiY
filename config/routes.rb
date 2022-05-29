@@ -44,5 +44,6 @@ Rails.application.routes.draw do
       put "mypage/password", :to => "users#update_password"
     end
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :reservations, only: %i[index new create]
+  
 end

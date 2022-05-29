@@ -43,4 +43,8 @@ class Reservation < ApplicationRecord
     visited: 1,
     cancel: 2
   }
+
+  def decreased_capacity
+    capacity.remaining_item - number_of_items
+  end
 end
