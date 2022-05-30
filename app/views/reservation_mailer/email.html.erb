@@ -1,0 +1,26 @@
+<p><%= @reservation.name %> 様</p>
+
+<p>この度は、ご予約をいただき誠にありがとうございます。</p>
+
+<p>以下の内容にてご予約を受付いたしました。</p>
+
+<p>当日のご来店をお待ちしております。</p>
+
+<p>========== ご予約内容 ==========</p>
+
+<p>お名前 : <%= @reservation.name %> 様</p>
+
+<p>お電話番号 : <%= @reservation.phone %></p>
+
+<p>ご来店日時 : <%= l @reservation.reservation_day, format: :short %> <%= @reservation.reservation_time %></p>
+
+<p>ご予約数 : <%= @reservation.number_of_items %> 個</p>
+
+<p>===============================</p>
+
+<p>ご予約の変更やキャンセルの際はお電話にてご連絡下さい。</p>
+<p>025-567-678</p>
+<p>このメールは送信専用のメールアドレスから配信しております。</p>
+
+<p>発行元:ICHIGO大福</p>
+<p>Copyright © 2022 ICHIGO大福</p>

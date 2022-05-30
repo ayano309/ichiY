@@ -6,9 +6,10 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
-      redirect_to root_path, notice: '保存できたよ'
+      ReservationMailer.email(@reservation).deliver_now
+      redirect_to root_path, notice: 'ご予約が完了しました。'
     else
-      flash.now[:error] = '保存に失敗しました'
+      flash.now[:error] = 'ご予約ができませんでした。'
       render :new
     end
   end

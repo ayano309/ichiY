@@ -1,0 +1,21 @@
+<%= @reservation.name %> 様
+
+この度は、ご予約をいただき誠にありがとうございます。
+以下の内容にてご予約を受付いたしました。
+当日のご来店をお待ちしております。
+
+========== ご予約内容 ==========
+
+お名前 : <%= @reservation.name %> 様
+お電話番号 : <%= @reservation.phone %>
+ご来店日時 : <%= l @reservation.reservation_day, format: :short %> <%= @reservation.reservation_time %>
+予約数 : <%= @reservation.number_of_items %> 個
+
+==============================
+
+ご予約の変更やキャンセルの際はお電話にてご連絡下さい。
+025-567-678
+このメールは送信専用のメールアドレスから配信しております。
+
+発行元:ICHIGO大福
+Copyright © 2022 ICHIGO大福
