@@ -47,4 +47,5 @@ Rails.application.routes.draw do
     end
   end
   resources :reservations, only: %i[new create]
+  resources :contacts, only: %i[index create]
 end
