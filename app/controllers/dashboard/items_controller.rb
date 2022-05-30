@@ -14,12 +14,11 @@ class Dashboard::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to dashboard_items_path,notice: '保存しました'
+      redirect_to dashboard_items_path, notice: '保存しました'
     else
       flash.now[:error] = '保存に失敗しました'
       render :new
     end
-    
   end
 
   def edit; end
