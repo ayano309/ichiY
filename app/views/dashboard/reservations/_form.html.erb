@@ -1,4 +1,5 @@
 <%= form_with model: @reservation, url: dashboard_reservation_path, local: true, id: "reservation_form" do |f| %>
+  <%= render 'layouts/error', object: f.object %>
   <%= f.hidden_field :user_id, value: current_user&.id %>
   <div class="form-group">
     <%= f.label :name %> *必須
