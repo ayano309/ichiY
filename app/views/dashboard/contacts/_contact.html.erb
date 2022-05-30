@@ -1,0 +1,16 @@
+<tr>
+  <td class="text-nowrap">
+    <%= l contact.created_at, format: :short%>
+  </td>
+  <td class="text-nowrap">
+    <%= contact.category_i18n %>
+  </td>
+  <td class="text-nowrap">
+    <%= contact.status_i18n %>
+  </td>
+  <td class="text-nowrap">
+    <%= link_to dashboard_contact_path(contact), class: "btn btn-info" do %>
+      詳細
+    <% end%>
+  </td>
+</tr>
