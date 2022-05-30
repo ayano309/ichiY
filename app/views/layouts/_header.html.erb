@@ -42,11 +42,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <ul class="navbar-nav mr-auto ml-3">
-      <li class= "nav-item"><%= link_to "HOME", root_path, class: "dropdown-item" %></li>
-      <li><%= link_to "NEWS", root_path, class: "dropdown-item" %></li>
-      <li><%= link_to "MENU", root_path, class: "dropdown-item" %></li>
-      <li><%= link_to "ABOUT US",about_path , class: "dropdown-item" %></li>
-      <li><%= link_to "お問い合わせ", contacts_path, class: "dropdown-item" %></li>
+      <li class= "nav-item"><%= link_to "TOP", root_path, class: "dropdown-item" %></li>
+      <li><%= link_to "Reservation", reservations_path, class: "dropdown-item" %></li>
+      <li><%= link_to "About Us",about_path , class: "dropdown-item" %></li>
+      <li><%= link_to "Contact", contacts_path, class: "dropdown-item" %></li>
     </ul>
   </div>
   <% if user_signed_in? %>
