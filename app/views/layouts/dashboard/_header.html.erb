@@ -3,7 +3,7 @@
   <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
   <ul>
   <li>
-    <%= link_to root_path, class: "nav-link" do %>
+    <%= link_to dashboard_path, class: "nav-link" do %>
       <i class="nav-icon fas fa-home"></i>
       <p>Home</p>
     <% end %>
@@ -27,7 +27,7 @@
     <% end %>
   </li>
   <li>
-    <%= link_to root_path, class: "nav-link" do %>
+    <%= link_to dashboard_calendar_path, class: "nav-link" do %>
       <i class="nav-icon far fa-calendar-alt"></i>
       <p>予約カレンダー</p>
     <% end %>
@@ -59,3 +59,7 @@
     });
 
   </script>
+
+  <%= link_to root_path, class: "btn btn-new" do %>
+    <p>予約サイトへ</p>
+  <% end %>
