@@ -24,10 +24,10 @@
 #
 class Reservation < ApplicationRecord
   belongs_to :user, optional: true
-  
+
   validates :name, presence: true
   validates :email, presence: true
-  validates :phone,presence: true
+  validates :phone, presence: true
   validates :number_of_items, presence: true
   validates :reservation_day, presence: true
   validates :reservation_time, presence: true
@@ -53,7 +53,6 @@ class Reservation < ApplicationRecord
     cancel: 2
   }
 
-  
   def date_before_today
     errors.add(:reservation_day, 'は過去の日付は選択できません') if reservation_day < Time.zone.today
   end
@@ -67,7 +66,7 @@ class Reservation < ApplicationRecord
   end
 
   def start_time
-    self.reservation_day.to_time.to_datetime
+    reservation_day.to_time.to_datetime
   end
 
   def count_items

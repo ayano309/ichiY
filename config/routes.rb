@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     resources :users, only: %i[index show destroy]
     resources :items, except: [:show]
-    resources :reservations,only: %i[index show edit update destroy]
+    resources :reservations, only: %i[index show edit update destroy]
     resources :contacts, only: %i[index show update destroy]
     patch '/reservations/cancel/:id', to: 'reservations#cancel'
     get '/calendar', to: 'reservations#reservation_calendar'
@@ -47,6 +47,6 @@ Rails.application.routes.draw do
       put 'mypage/password', to: 'users#update_password'
     end
   end
-  resources :reservations, only: %i[new create]
+  resources :reservations, only: %i[index create]
   resources :contacts, only: %i[index create]
 end
