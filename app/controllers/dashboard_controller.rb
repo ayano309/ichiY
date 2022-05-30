@@ -3,8 +3,8 @@ class DashboardController < ApplicationController
   layout 'dashboard/dashboard'
 
   def index
-    @reservations = Reservation.all.order(created_at: 'desc')
-    @contacts = Contact.all.order(created_at: 'desc')
+    @reservations = Reservation.where(created_at: 1.week.ago..Time.zone.today).order(created_at: 'desc')
+    @contacts = Contact.where(created_at: 1.week.ago..Time.zone.today).order(created_at: 'desc')
   end
   
 end
