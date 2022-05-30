@@ -1,0 +1,11 @@
+<div class="col-12 mt-3">
+    <%= month_calendar events: @reservations do |start_time, reservations| %>
+      <%= start_time.day %><br>
+      <%if reservations.count >=1 %>
+        <%= link_to dashboard_reservations_path ,class: "btn btn-sm btn-dark" do%>
+          <%= reservations.count%>件
+        <% end%>
+      <% end%>
+    <% end %>
+  </div>
+</div>
