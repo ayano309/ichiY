@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="text-center my-5">ご予約</h1>
+  <div class="row px-2">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <% unless user_signed_in? %>
+        <div class="text-center mb-3">
+          <%=link_to "会員ログイン",login_path, class: "btn btn-log"%>
+        </div>
+        <div class="text-center my-3">
+          <h5>会員でない方はこちら</h5>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border p-3 mb-4">
+      <%= render "form" %>
+      <div class="text-center my-3">
+        <small><%= link_to "利用規約", terms_path %>、<%= link_to "プライバシーポリシー", privacy_path %>をご確認の上、ボタンを押してください。</small>
+      </div>
+    </div>
+    <div class="col-12 text-center mb-5">
+      <%= link_to "戻る", root_path %>
+    </div>
+  </div>
+</div>
+</div>
