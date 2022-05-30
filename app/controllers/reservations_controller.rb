@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  def new
+  def index
     @reservation = Reservation.new
   end
 
