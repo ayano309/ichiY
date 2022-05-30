@@ -65,4 +65,12 @@ class Reservation < ApplicationRecord
   def reservation_day_not_wednesday
     errors.add(:reservation_day, 'は定休日(水曜日・土曜日)以外を選択してください') if reservation_day.wednesday?
   end
+
+  def start_time
+    self.reservation_day.to_time.to_datetime
+  end
+
+  def count_items
+    Reservation.all.sum(:number_of_items)
+  end
 end

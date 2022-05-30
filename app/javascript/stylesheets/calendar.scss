@@ -1,0 +1,29 @@
+
+
+
+.simple-calendar {
+  .day {
+    width: 100px;
+    height: 100px;
+  }
+  .wday-0 {
+    color: red;
+  }
+  .wday-1 {
+    color: red;
+  } 
+  
+  .past {
+    background-color: rgb(162, 159, 159);
+    opacity: 0.7;
+  }
+  
+  .today{
+    background-color: #fad4d4e0;
+  }
+  
+  
+  .has-events {
+    background-color: #f69b9b;
+  }
+}

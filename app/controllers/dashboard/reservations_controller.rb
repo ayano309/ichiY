@@ -8,6 +8,10 @@ class Dashboard::ReservationsController < ApplicationController
 
   def show; end
 
+  def reservation_calendar
+    @reservations = Reservation.all.where("reservation_day >= ?", Date.current).where("reservation_day < ?", Date.current >> 2).order(reservation_day: :desc)
+  end
+
 
   def edit; end
 
