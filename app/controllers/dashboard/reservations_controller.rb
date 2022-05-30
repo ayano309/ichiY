@@ -3,7 +3,7 @@ class Dashboard::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show edit update destroy cancel]
   layout 'dashboard/dashboard'
   def index
-    @reservations = Reservation.all.order(capacity_id: 'desc')
+    @reservations = Reservation.order(reservation_day: 'desc').page(params[:page])
   end
 
   def show; end

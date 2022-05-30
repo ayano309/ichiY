@@ -8,7 +8,7 @@ class Dashboard::UsersController < ApplicationController
       @users = User.search_information(@keyword).page(params[:page])
     else
       @keyword = ''
-      @users = User.all.order(created_at: :desc).page(params[:page])
+      @users = User.order(created_at: :desc).page(params[:page])
     end
   end
 

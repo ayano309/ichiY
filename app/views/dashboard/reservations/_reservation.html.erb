@@ -1,25 +1,27 @@
-<tr>
-  <td class="text-nowrap">
-    <%= l reservation.reservation_day, format: :short %>
-  </td>
-  <td class="text-nowrap">
-    <%= reservation.reservation_time %>
-  </td>
-  <td class="text-nowrap">
-    <%= reservation.name %>様
-  </td>
-  <td class="text-nowrap">
-    <%= reservation.number_of_items %>
-  </td>
-  <td class="text-nowrap">
-    <%= reservation.reservation_status_i18n %>
-  </td>
-  <td class="text-nowrap">
-    <%= link_to dashboard_reservation_path(reservation), class: "btn btn-info" do %>
-      詳細
-    <% end%>
-    <%= link_to edit_dashboard_reservation_path(reservation), class: "btn btn-success" do %>
-      変更
-    <% end%>
-  </td>
-</tr>
+<% @reservations.each do |reservation| %>
+  <tr>
+    <td class="text-nowrap">
+      <%= l reservation.reservation_day, format: :short %>
+    </td>
+    <td class="text-nowrap">
+      <%= reservation.reservation_time %>
+    </td>
+    <td class="text-nowrap">
+      <%= reservation.name %>様
+    </td>
+    <td class="text-nowrap">
+      <%= reservation.number_of_items %>
+    </td>
+    <td class="text-nowrap">
+      <%= reservation.reservation_status_i18n %>
+    </td>
+    <td class="text-nowrap">
+      <%= link_to dashboard_reservation_path(reservation), class: "btn btn-info" do %>
+        詳細
+      <% end%>
+      <%= link_to edit_dashboard_reservation_path(reservation), class: "btn btn-success" do %>
+        変更
+      <% end%>
+    </td>
+  </tr>
+<% end %>

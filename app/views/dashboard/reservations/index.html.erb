@@ -17,10 +17,13 @@
             </tr>
           </thead>
           <tbody>
-            <%= render @reservations %>
+            <%= render 'reservation', reservations: @reservations %>
           </tbody>
         </table>
       </div>
     </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= paginate @reservations %>
   </div>
 </div>
