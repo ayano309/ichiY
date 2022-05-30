@@ -4,6 +4,7 @@
       <div class="my-3">
         <h2>お問い合わせ詳細</h2>
       </div>
+      <%= render "form" %>
       <table class="table table-bordered bg-white">
         <tr>
           <th scope="row" class="text-nowrap">問い合わせ日時</th>
@@ -23,7 +24,7 @@
         </tr>
         <tr>
           <th scope="row" class="text-nowrap">電話番号</th>
-          <td><%= @contact.phonenumber %></td>
+          <td><%= @contact.phone %></td>
         </tr>
         <tr>
           <th scope="row" class="text-nowrap">項目</th>
@@ -35,7 +36,7 @@
         </tr>
       </table>
       <div class="text-center mb-3">
-        <%= link_to "一覧へ", admin_contacts_path, class: "btn btn-log" %>
+        <%= link_to "一覧へ", dashboard_contacts_path, class: "btn btn-log" %>
       </div>
     </div>
   </div>
