@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      ContactMailer.email(@contact).deliver_now
       redirect_to root_path, notice: 'お問い合わせを送信しました。'
     else
       flash.now[:error] = 'お問い合わせの送信に失敗しました。'
