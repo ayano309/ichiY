@@ -19,4 +19,16 @@ class Contact < ApplicationRecord
   validates :message, presence: true
   validates :category, presence: true
   validates :status, presence: true
+
+  enum category: {
+    reserved: 0,
+    item: 1,
+    shop: 2,
+    others: 3
+  }
+
+  enum status: {
+    unsupported: 0,
+    closed: 1
+  }
 end
