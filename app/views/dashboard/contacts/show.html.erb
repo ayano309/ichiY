@@ -35,6 +35,7 @@
           <td><%= simple_format @contact.message %></td>
         </tr>
       </table>
+      <%= link_to '削除', dashboard_contact_path(@contact), method: :delete, data: { confirm: '本当に削除してもよろしいですか'}, class: 'btn btn-danger' %>
       <div class="text-center mb-3">
         <%= link_to "一覧へ", dashboard_contacts_path, class: "btn btn-log" %>
       </div>
