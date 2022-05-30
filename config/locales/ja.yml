@@ -21,6 +21,13 @@ ja:
         name: アイテム名
         description: 説明
         price: 単価
+      contact:
+        name: お名前
+        email: メールアドレス
+        phone: 電話番号
+        message: メッセージ
+        category: お問い合わせ内容
+        status: ステータス
   date:
     abbr_day_names:
     - 日

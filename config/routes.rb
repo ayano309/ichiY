@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'contacts/index'
   root 'home#top'
   get 'terms', to: 'home#terms'
   get 'privacy', to: 'home#privacy'
