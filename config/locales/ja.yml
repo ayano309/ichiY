@@ -16,11 +16,11 @@ ja:
         reservation_time: 予約時間
         reservation_status: 予約ステータス
         start_time: 予約日
-        capacity_id: 日付ID
         user_id: ユーザーID
-      capacity:
-        start_time: 予約日
-        remaining_item: 予約可能数
+      item:
+        name: アイテム名
+        description: 説明
+        price: 単価
   date:
     abbr_day_names:
     - 日
