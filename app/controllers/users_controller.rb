@@ -19,6 +19,11 @@ class UsersController < ApplicationController
 
   def edit_password; end
 
+  def user_reservation
+    @reservations = @user.reservations.order(created_at: :desc).page(params[:page]).per(5)
+  end
+
+
   private
 
   def set_user
