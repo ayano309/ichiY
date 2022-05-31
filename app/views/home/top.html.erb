@@ -1,0 +1,47 @@
+<div id="top">
+	<div id="wrapper">
+		<div id="content">
+			<p id="mainImg"><%=image_tag "ichigo-image1",width:"100%"%></p>
+			<section id="section1">
+				<header>
+					<h2><span>ICHIGO大福</span></h2>
+				</header>
+				<div class="text-center">
+				苺大福を中心に和菓子を扱っている小さなお店の予約サイトです。<br>
+        頑張っている自分のご褒美に苺大福はいかがですか。<br>
+        大人気の苺大福は練たての求肥にたっぷりの餡子とジューシーないちごの組み合わせが絶品です。
+				</div>
+			</section>
+			<section id="section2">
+				<ul id="gallery" calss="row">
+					<li class="col"><%=image_tag "",width:"360", height:"350" ,alt:"店内"%></li>
+					<li class="col"><%=image_tag "",width:"360", height:"350" ,alt:"いちご"%></li>
+					<li class="col"><%=image_tag "",width:"360", height:"350" ,alt:"看板"%></li>
+				</ul>
+			</section>
+			<section id="section3">
+				<header>
+					<h2><span>こだわり</span></h2>
+				</header>
+				<div class="inner">
+					<ul class="col">
+						<li>
+              <strong>国産の素材</strong><br>
+							<p>
+								求肥は京都丹波産の「新羽二重餅粉」、小豆は京都府兵庫県産の「丹波大納言小豆」使用しております。<br>
+								添加物不使用です。いちご大福は生菓子ですので必ず<strong>当日中</strong>にお召し上がりください。</p>
+						</li>
+						<li>
+              <strong>環境に優しく</strong><br>
+							<p>
+							フードロス廃棄を出さない為に予約制を設けています<br>
+							またプラスチック素材不使用、紙パッケージを使用しております。</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+      <%= link_to "管理者の方はこちら" ,new_admin_session_path,class: "btn btn-log"%>
+		</div>
+	</div>
+<div>
+
