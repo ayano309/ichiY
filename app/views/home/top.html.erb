@@ -1,11 +1,15 @@
 <div id="top">
 	<div id="wrapper">
 		<div id="content">
-			<p id="mainImg"><%=image_tag "ichigo-image1",width:"100%"%></p>
+			<p class="top-main_image"><%=image_tag "ichigo-image1",width:"100%"%></p>
 			<section id="section1">
-				<header>
-					<h2><span>ICHIGO大福</span></h2>
-				</header>
+				<h2 class="top-title"><span>ICHIGO大福</span></h2>
+				<p class="top-title_border"></p>
+				<div class="top-main_image_reserve text-center">
+					<%= link_to reservations_path do %>
+						<%=image_tag "reserve.png",height:"200px"%>
+					<% end %>
+				</div>
 				<div class="text-center">
 				苺大福を中心に和菓子を扱っている小さなお店の予約サイトです。<br>
         頑張っている自分のご褒美に苺大福はいかがですか。<br>
@@ -21,7 +25,8 @@
 			</section>
 			<section id="section3">
 				<header>
-					<h2><span>こだわり</span></h2>
+					<h2 class="top-title"><span>こだわり</span></h2>
+					<p class="top-title_border"></p>
 				</header>
 				<div class="inner">
 					<ul class="col">

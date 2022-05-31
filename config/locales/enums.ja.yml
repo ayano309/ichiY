@@ -7,7 +7,7 @@ ja:
         cancel: 'キャンセル'
     contact:
       category:
-        reserved: '予約について'
+        reserved: '12個以上の予約について'
         item: '商品について'
         shop: '当店について'
         others: 'その他'
