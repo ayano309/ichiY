@@ -51,7 +51,7 @@ footer {
   }
 }
 
-//shop-image
+//shop-image(about)
 .main-visual{/*親div*/
   position: relative;/*相対配置*/
   &_title{
@@ -72,5 +72,17 @@ footer {
     height: 250px;
     object-fit: cover;
     opacity: 0.5;
+  }
+}
+
+//top-page
+.top-title{
+  font-weight: bold;
+  margin-bottom: 0;
+  &_border{
+    width: 100px;
+    margin: 0 auto;
+    border-bottom:4px solid #f78686 ;
+    margin-bottom: 20px;
   }
 }
