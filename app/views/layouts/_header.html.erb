@@ -1,6 +1,7 @@
 <nav class="navbar navbar-light fixed-top shadow navbar-expand-lg">
+  <%= image_tag "ichigo-logo.png",width:"100px"%>
   <%= link_to root_path, class: "navbar-brand" do %>
-    <h1>ICHIGO大福</h1>
+    <h1 class="m-0">ICHIGO大福</h1>
   <% end %>
   <% if user_signed_in? %>
     <div class="navbar-nav ml-auto d-block d-lg-none">
