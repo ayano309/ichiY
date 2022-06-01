@@ -12,5 +12,31 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'バリデーションのテスト' do
+    subject { item.valid? }
+
+    let!(:item) { build(:item) }
+
+    context 'nameカラム' do
+      it '空欄でないこと' do
+        item.name = ''
+        is_expected.to eq false
+      end
+    end
+
+    context 'descriptionカラム' do
+      it '空欄でないこと' do
+        item.description = ''
+        is_expected.to eq false
+      end
+    end
+
+    context 'priceカラム' do
+      it '空欄でないこと' do
+        item.price = ''
+        is_expected.to eq false
+      end
+    end
+
+  end
 end
