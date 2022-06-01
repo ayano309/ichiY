@@ -11,8 +11,8 @@
 #
 FactoryBot.define do
   factory :item do
-    name { "MyString" }
-    description { "MyText" }
+    name { Faker::Lorem.characters(number: 5) }
+    description { Faker::Lorem.characters(number: 20) }
     price { 1 }
   end
 end
