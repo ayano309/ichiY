@@ -1,6 +1,25 @@
 <div class="container">
   <h1 class="text-center my-5">ご予約</h1>
   <div class="row px-2">
+    <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border p-3 mb-4">
+      <h2 class="today-ichigo">本日のいちご</h2><br>
+      <p class="text-center" style="color:red;">季節により1種類〜3種類の苺です<br>
+      （ご指定頂けませんのでご了承ください）</p>
+      <tbody>
+        <% @items.each do |item| %>
+        <tr>
+          <td>
+            <%= image_tag item.get_image(100, 100)%>
+          </td>
+          <td><%= item.name %></td>
+          <td><%= item.price.to_s(:delimited) %>円</td>
+        </tr>
+        <% end %>
+        <P></P>
+      </tbody>
+    </div>
+  </div>
+  <div class="row px-2">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <% unless user_signed_in? %>
         <div class="text-center mb-3">
@@ -22,4 +41,4 @@
     </div>
   </div>
 </div>
-</div>
+
