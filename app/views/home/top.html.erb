@@ -7,7 +7,7 @@
 				<p class="top-title_border"></p>
 				<div class="top-main_image_reserve text-center">
 					<%= link_to reservations_path do %>
-						<%=image_tag "reserve.png",height:"200px"%>
+						<%=image_tag "reserve.png",height:"300px"%>
 					<% end %>
 				</div>
 				<div class="text-center">
@@ -29,23 +29,22 @@
 					<p class="top-title_border"></p>
 				</header>
 				<div class="inner">
-					<ul class="col">
-						<li>
-              <strong>国産の素材</strong><br>
+					<div class="inner-contents">
+						<div class="mt-2">
+							<strong>国産の素材</strong><br>
 							<p>
 								求肥は京都丹波産の「新羽二重餅粉」、小豆は京都府兵庫県産の「丹波大納言小豆」使用しております。<br>
 								添加物不使用です。いちご大福は生菓子ですので必ず<strong>当日中</strong>にお召し上がりください。</p>
-						</li>
-						<li>
-              <strong>環境に優しく</strong><br>
+						</div>
+						<div class="mt-2">
+							<strong>環境に優しく</strong><br>
 							<p>
 							フードロス廃棄を出さない為に予約制を設けています<br>
 							またプラスチック素材不使用、紙パッケージを使用しております。</p>
-						</li>
-					</ul>
+						</div>
+					</div>
 				</div>
 			</section>
-      <%= link_to "管理者の方はこちら" ,new_admin_session_path,class: "btn btn-log"%>
 		</div>
 	</div>
 <div>
