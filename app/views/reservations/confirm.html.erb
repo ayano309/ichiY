@@ -28,6 +28,7 @@
           <td><%= @reservation.number_of_items %></td>
         </tr>
       </table>
+      <!--予約確認-->
       <%= form_with model: @reservation, local: true, id: "reservation_form" do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
@@ -39,6 +40,7 @@
           <%= f.submit "予約する", class: "btn btn-new w-100" %>
         </div>
       <% end %>
+      <!--戻る-->
       <%= form_with model: @reservation, method: :post, url: reservations_back_path, local: true do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
