@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
+  before_action :ensure_guest_user, only: [:edit_password, :update_password]
 
   def show; end
 
@@ -37,4 +38,11 @@ class UsersController < ApplicationController
   def password_set?
     user_params[:password].present? ? true : false
   end
+
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.name == "guestuser"
+      redirect_to root_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
+  end  
 end

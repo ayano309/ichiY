@@ -1,5 +1,7 @@
 class Dashboard::UsersController < ApplicationController
   before_action :authenticate_admin!
+  before_action :ensure_guest_user, only: [:destroy]
+
   layout 'dashboard/dashboard'
   # ユーザー一覧
   def index
@@ -26,4 +28,11 @@ class Dashboard::UsersController < ApplicationController
     user.update(deleted_flg: deleted_flg)
     redirect_to dashboard_users_path
   end
+  private
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.name == "guestuser"
+      redirect_to root_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
+  end  
 end

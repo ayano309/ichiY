@@ -48,4 +48,14 @@ class User < ApplicationRecord
   def switch_flg(column_of_obj)
     column_of_obj ? false : true
   end
+
+  #ゲストログイン
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|  # ゲストログイン用
+      user.name = 'ゲスト'
+      user.phone = '00000000000'
+      user.password = 'password'
+      user.password_confirmation = 'password'
+    end
+  end
 end
