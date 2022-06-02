@@ -1,6 +1,6 @@
 class Dashboard::ReservationsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_reservation, only: %i[show edit update destroy cancel]
+  before_action :set_reservation, only: %i[show edit update destroy cancel status_update]
   layout 'dashboard/dashboard'
   def index
     @reservations = Reservation.order(reservation_day: 'desc').page(params[:page])
@@ -20,6 +20,15 @@ class Dashboard::ReservationsController < ApplicationController
     else
       flash.now[:error] = '更新に失敗しました'
       render :edit
+    end
+  end
+
+  def status_update
+    if @reservation.update!(reservation_params)
+      redirect_to dashboard_reservations_path, success: '変更が完了しました'
+    else
+      flash.now[:error] = '更新に失敗しました'
+      render :show
     end
   end
 

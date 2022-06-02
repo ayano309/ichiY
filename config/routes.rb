@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :reservations, only: %i[index show edit update destroy]
     resources :contacts, only: %i[index show update destroy]
     patch '/reservations/cancel/:id', to: 'reservations#cancel'
+    patch '/reservations/status/:id', to: 'reservations#status_update', as: :status
     get '/calendar', to: 'reservations#reservation_calendar'
   end
 

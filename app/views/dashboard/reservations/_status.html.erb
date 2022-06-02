@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-12 mb-3">
+    <%= form_with model:@reservation, url: dashboard_status_path(@reservation), local: true  do |f| %>
+      <div class="row">
+        <div class="form-inline align-items-right mx-auto">
+          <div class="col-auto">
+            <%= f.select :reservation_status, Reservation.reservation_statuses_i18n.invert, {}, {class: "form-control", required: true} %>
+          </div>
+          <div class="col-auto">
+            <%= f.submit "更新",  class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
