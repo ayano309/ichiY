@@ -11,21 +11,13 @@ describe '[STEP1] ユーザログイン前のテスト' do
       it 'URLが正しい' do
         expect(current_path).to eq '/'
       end
-      it 'Log inリンクが表示される: ボタンの表示が「Log in」である' do
-        log_in_link = find_all('a')[6].native.inner_text
-        expect(log_in_link).to match(/Log in/)
+      it 'Log inリンクが表示される: ボタンの表示が「ログイン」である' do
+        log_in_link = find_all('a')[8].native.inner_text
+        expect(log_in_link).to match(/ログイン/)
       end
-      it 'Log inリンクの内容が正しい' do
-        log_in_link = find_all('a')[6].native.inner_text
-        expect(page).to have_link log_in_link, href: new_user_session_path
-      end
-      it 'Sign upリンクが表示される: 緑色のボタンの表示が「Sign up」である' do
-        sign_up_link = find_all('a')[5].native.inner_text
-        expect(sign_up_link).to match(/Sign up/)
-      end
-      it 'Sign upリンクの内容が正しい' do
-        sign_up_link = find_all('a')[5].native.inner_text
-        expect(page).to have_link sign_up_link, href: new_user_registration_path
+      it 'Sign upリンクが表示される: 表示が「新規登録」である' do
+        sign_up_link = find_all('a')[7].native.inner_text
+        expect(sign_up_link).to match(/新規登録/)
       end
     end
   end
@@ -48,25 +40,25 @@ describe '[STEP1] ユーザログイン前のテスト' do
     end
 
     context '表示内容の確認' do
-      it 'Reservationリンクが表示される: 左上から3番目のリンクが「Reservation」である' do
-        reservation_link = find_all('a')[2].native.inner_text
+      it 'ログインリンクが表示される: 左上から3番目のリンクが「ログイン」である' do
+        login_link = find_all('a')[2].native.inner_text
+        expect(login_link).to match(/ログイン/)
+      end
+      it 'TOPリンクが表示される: 左上から4番目のリンクが「TOP」である' do
+        top_link = find_all('a')[3].native.inner_text
+        expect(top_link).to match(/TOP/)
+      end
+      it 'Reservationリンクが表示される: 左上から5番目のリンクが「Reservation」である' do
+        reservation_link = find_all('a')[4].native.inner_text
         expect(reservation_link).to match(/Reservation/)
       end
-      it 'Aboutリンクが表示される: 左上から4番目のリンクが「About」である' do
-        about_link = find_all('a')[3].native.inner_text
-        expect(about_link).to match(/About/)
+      it 'About Usリンクが表示される: 左上から6番目のリンクが「About Us」である' do
+        about_link = find_all('a')[5].native.inner_text
+        expect(about_link).to match(/About Us/)
       end
-      it 'Contactリンクが表示される: 左上から5番目のリンクが「Contact」である' do
-        contact_link = find_all('a')[4].native.inner_text
+      it 'Log inリンクが表示される: 左上から7番目のリンクが「Contact」である' do
+        contact_link = find_all('a')[6].native.inner_text
         expect(contact_link).to match(/Contact/)
-      end
-      it 'Sign upリンクが表示される: 左上から6番目のリンクが「新規登録」である' do
-        signup_link = find_all('a')[5].native.inner_text
-        expect(signup_link).to match(/新規登録/)
-      end
-      it 'Log inリンクが表示される: 左上から7番目のリンクが「ログイン」である' do
-        login_link = find_all('a')[6].native.inner_text
-        expect(login_link).to match(/ログイン/)
       end
     end
 
@@ -81,38 +73,38 @@ describe '[STEP1] ユーザログイン前のテスト' do
         is_expected.to eq '/'
       end
       it 'TOPを押すと、トップ画面に遷移する' do
-        home_link = find_all('a')[1].native.inner_text
-        home_link = home_link.delete(' ')
-        home_link.gsub!(/\n/, '')
-        click_link home_link
+        top_link = find_all('a')[3].native.inner_text
+        top_link = top_link.delete(' ')
+        top_link.gsub!(/\n/, '')
+        click_link top_link
         is_expected.to eq '/'
       end
-      it 'Reservationを押すと、アバウト画面に遷移する' do
-        reservation_link = find_all('a')[2].native.inner_text
+      it 'Reservationを押すと,予約画面に遷移する' do
+        reservation_link = find_all('a')[4].native.inner_text
         reservation_link = reservation_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link reservation_link
         is_expected.to eq '/reservations'
       end
       it 'Aboutを押すと、アバウト画面に遷移する' do
-        about_link = find_all('a')[3].native.inner_text
+        about_link = find_all('a')[5].native.inner_text
         about_link = about_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link about_link
         is_expected.to eq '/about'
       end
-      it 'Contactを押すと、アバウト画面に遷移する' do
-        contact_link = find_all('a')[4].native.inner_text
+      it 'Contactを押すと、お問い合わせ画面に遷移する' do
+        contact_link = find_all('a')[6].native.inner_text
         contact_link = contact_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link contact_link
         is_expected.to eq '/contacts'
       end
       it 'Sign upを押すと、新規登録画面に遷移する' do
-        signup_link = find_all('a')[5].native.inner_text
+        signup_link = find_all('a')[7].native.inner_text
         signup_link = signup_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link signup_link, match: :first
         is_expected.to eq '/users/sign_up'
       end
       it 'Log inを押すと、ログイン画面に遷移する' do
-        login_link = find_all('a')[6].native.inner_text
+        login_link = find_all('a')[8].native.inner_text
         login_link = login_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
         click_link login_link, match: :first
         is_expected.to eq '/users/sign_in'
@@ -166,7 +158,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
       end
       it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
         click_button 'Sign up'
-        expect(current_path).to eq '/users/' + User.last.id.to_s
+        expect(current_path).to eq '/' 
       end
     end
   end
@@ -213,7 +205,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
 
     context 'ログイン失敗のテスト' do
       before do
-        fill_in 'user[name]', with: ''
+        fill_in 'user[email]', with: ''
         fill_in 'user[password]', with: ''
         click_button 'Log in'
       end
@@ -235,24 +227,28 @@ describe '[STEP1] ユーザログイン前のテスト' do
     end
 
     context 'ヘッダーの表示を確認' do
-      it 'Reservationリンクが表示される: 左上から3番目のリンクが「Reservation」である' do
-        reservation_link = find_all('a')[2].native.inner_text
+      it 'TOPリンクが表示される: 左上から4番目のリンクが「TOP」である' do
+        top_link = find_all('a')[3].native.inner_text
+        expect(top_link).to match(/TOP/)
+      end
+      it 'Reservationリンクが表示される: 左上から4番目のリンクが「Reservation」である' do
+        reservation_link = find_all('a')[4].native.inner_text
         expect(reservation_link).to match(/Reservation/)
       end
-      it 'Aboutリンクが表示される: 左上から4番目のリンクが「About」である' do
-        about_link = find_all('a')[3].native.inner_text
-        expect(about_link).to match(/About/)
+      it 'About Usリンクが表示される: 左上から4番目のリンクが「About Us」である' do
+        about_link = find_all('a')[5].native.inner_text
+        expect(about_link).to match(/About Us/)
       end
       it 'Contactリンクが表示される: 左上から5番目のリンクが「Contact」である' do
-        contact_link = find_all('a')[4].native.inner_text
+        contact_link = find_all('a')[6].native.inner_text
         expect(contact_link).to match(/Contact/)
       end
       it 'マイページリンクが表示される: 左上から6番目のリンクが「マイページ」である' do
-        mypage_link = find_all('a')[5].native.inner_text
+        mypage_link = find_all('a')[7].native.inner_text
         expect(mypage_link).to match(/マイページ/)
       end
       it 'ログアウトリンクが表示される: 左上から7番目のリンクが「ログアウト」である' do
-        logout_link = find_all('a')[6].native.inner_text
+        logout_link = find_all('a')[8].native.inner_text
         expect(logout_link).to match(/ログアウト/)
       end
     end
@@ -275,9 +271,6 @@ describe '[STEP1] ユーザログイン前のテスト' do
     context 'ログアウト機能のテスト' do
       it '正しくログアウトできている: ログアウト後のリダイレクト先においてTOP画面へのリンクが存在する' do
         expect(page).to have_link '', href: '/'
-      end
-      it 'ログアウト後のリダイレクト先が、トップになっている' do
-        expect(current_path).to eq '/'
       end
     end
   end

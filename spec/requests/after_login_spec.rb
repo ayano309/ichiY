@@ -24,11 +24,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
   end
 
   context '予約内容' do
-    it '自分の名前とメールアドレス,電話が表示される' do
-      expect(page).to have_content user.name
-      expect(page).to have_content user.email
-      expect(page).to have_content user.phone
-    end
     it '利用規約ボタンが存在する' do
       expect(page).to have_link '', href: terms_path
     end
@@ -56,8 +51,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
     it '電話番号フォームに値が入っていない' do
       expect(find_field('reservation[phone]').text).to be_blank
     end
-    it '利用規約に同意するボタンが表示される' do
-      expect(page).to have_button '利用規約に同意する'
-    end
   end
+end
 end
