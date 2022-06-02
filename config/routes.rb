@@ -50,6 +50,8 @@ Rails.application.routes.draw do
     end
   end
   resources :reservations, only: %i[index create]
+  post 'reservations/confirm'
+  post 'reservations/back'
   resources :contacts, only: %i[index create]
   post 'contacts/confirm'
   post 'contacts/back'

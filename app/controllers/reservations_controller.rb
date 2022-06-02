@@ -4,6 +4,20 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
   end
 
+  def confirm
+    @reservation = Reservation.new(reservation_params)
+    return unless @reservation.invalid?
+    flash.now[:error] = 'ご来店日は水曜日、土曜日以外の日付を選択して下さい。'
+    @items = Item.all
+    render :index
+  end
+  
+  def back
+    @items = Item.all
+    @reservation = Reservation.new(reservation_params)
+    render :index
+  end
+
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
@@ -11,7 +25,8 @@ class ReservationsController < ApplicationController
       redirect_to root_path, notice: 'ご予約が完了しました。'
     else
       flash.now[:error] = 'ご予約ができませんでした。'
-      render :new
+      @items = Item.all
+      render :index
     end
   end
 

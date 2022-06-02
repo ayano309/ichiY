@@ -24,6 +24,7 @@
           <td><%= simple_format @contact.message %></td>
         </tr>
       </table>
+      <!--お問い合わせ確認-->
       <%= form_with model: @contact, local: true do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
@@ -34,6 +35,7 @@
           <%= f.submit "送信する", class: "btn btn-new w-100" %>
         </div>
       <% end %>
+      <!--戻る-->
       <%= form_with model: @contact, method: :post, url: contacts_back_path, local: true do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
