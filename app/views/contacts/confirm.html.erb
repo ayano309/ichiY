@@ -1,0 +1,52 @@
+<div class="container">
+  <h1 class="text-center my-5">お問い合わせ内容確認</h1>
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2 p-3 mb-4">
+      <table class="table table-bordered bg-white">
+        <tr>
+          <th scope="row" class="table-active text-center align-middle">お名前</th>
+          <td><%= @contact.name %>様</td>
+        </tr>
+        <tr>
+          <th scope="row" class="table-active text-center align-middle">メールアドレス</th>
+          <td><%= @contact.email %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="table-active text-center align-middle">電話番号</th>
+          <td><%= @contact.phone %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="table-active text-center align-middle">お問い合わせ項目</th>
+          <td><%= @contact.category_i18n %></td>
+        </tr>
+        <tr>
+          <th scope="row" class="table-active text-center align-middle">内容</th>
+          <td><%= simple_format @contact.message %></td>
+        </tr>
+      </table>
+      <%= form_with model: @contact, local: true do |f| %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :phone %>
+        <%= f.hidden_field :category %>
+        <%= f.hidden_field :message %>
+        <div class="actions text-center mb-3">
+          <%= f.submit "送信する", class: "btn btn-new w-100" %>
+        </div>
+      <% end %>
+      <%= form_with model: @contact, method: :post, url: contacts_back_path, local: true do |f| %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :phone %>
+        <%= f.hidden_field :category %>
+        <%= f.hidden_field :message %>
+        <div class="actions text-center mb-3">
+          <%= f.submit "入力画面に戻る", class: "btn btn-secondary w-100" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-12 text-center mb-5">
+      <%= link_to "TOPに戻る", root_path %>
+    </div>
+  </div>
+</div>
