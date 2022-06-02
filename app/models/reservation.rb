@@ -33,7 +33,9 @@ class Reservation < ApplicationRecord
   validates :reservation_time, presence: true
   validates :reservation_status, presence: true
 
-  validate :date_before_today
+  #新規予約作成時のみ過去日付を選択できないようにon: :createにする
+  #あとでステータス変更するため
+  validate :date_before_today, on: :create
   validate :reservation_day_not_saturday
   validate :reservation_day_not_wednesday
 
