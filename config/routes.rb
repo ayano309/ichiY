@@ -50,6 +50,9 @@ Rails.application.routes.draw do
       put 'mypage/password', to: 'users#update_password'
       #予約履歴
       get 'mypage/reservation', to: 'users#user_reservation'
+      #退会機能
+      get "confirm" => "users#confirm"
+      patch "withdrawal" => "users#withdrawal"
     end
   end
   resources :reservations, only: %i[index new create]

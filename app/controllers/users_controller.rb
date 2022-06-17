@@ -24,6 +24,15 @@ class UsersController < ApplicationController
     @reservations = @user.reservations.order(created_at: :desc).page(params[:page]).per(5)
   end
 
+  def confirm; end
+
+  def withdrawal
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    deleted_flg = User.switch_flg(@user.deleted_flg)
+    @user.update(deleted_flg: deleted_flg)
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+  end
 
   private
 

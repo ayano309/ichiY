@@ -26,6 +26,7 @@ class Dashboard::UsersController < ApplicationController
     #switch_flgメソッドは、与えられた引数によってtrueまたはfalseを返す。
     deleted_flg = User.switch_flg(user.deleted_flg)
     user.update(deleted_flg: deleted_flg)
+    flash[:notice] = "退会処理を実行いたしました"
     redirect_to dashboard_users_path
   end
   private
