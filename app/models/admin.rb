@@ -22,4 +22,11 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def self.guest
+    find_or_create_by!(name: 'guestadmin' ,email: 'admin@example.com') do |admin|
+      admin.password = SecureRandom.urlsafe_base64
+      admin.name = "guestadmin"
+    end
+  end
 end
