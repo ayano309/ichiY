@@ -30,7 +30,8 @@
       <%= f.label :reservation_day %>
     </div>
     <div class="mb-3">
-      <%= f.date_field :reservation_day, class: "form-control", required: true, min: Date.tomorrow, max: Date.today.since(1.month) %>
+      <%= f.text_field :reservation_day, class: 'form-control', value: @day, readonly: true %>
+      
     </div>
   </div>
   <div class="form-group">

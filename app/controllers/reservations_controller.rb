@@ -1,14 +1,20 @@
 class ReservationsController < ApplicationController
   def index
+    @reservations = Reservation.all
     @items = Item.all
-    @reservation = Reservation.new
+    
   end
 
+  def new
+    @reservation = Reservation.new
+    @day = params[:reservation_day]
+  end
   def confirm
     @reservation = Reservation.new(reservation_params)
     return unless @reservation.invalid?
     flash.now[:error] = 'ご来店日は水曜日、土曜日以外の日付を選択して下さい。'
     @items = Item.all
+    @reservations = Reservation.all
     render :index
   end
   
