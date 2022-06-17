@@ -4,35 +4,32 @@
     <h1 class="m-0">ICHIGO大福</h1>
   <% end %>
   <% if user_signed_in? %>
-    <div class="navbar-nav ml-auto d-block d-lg-none">
+    <div class="navbar-nav ml-auto d-block d-lg-none header-item_in">
       <%= link_to mypage_users_path do %>
         <div class="flex-column text-center">
-          <i class="fas fa-user fa-2x"></i>
-          <p class="text-nowrap mb-0">マイページ</p>
+          <p class="text-nowrap">マイページ</p>
         </div>
       <% end %>
     </div>
-    <div class="navbar-nav d-block d-lg-none">
+    <div class="navbar-nav d-block d-lg-none header-item_out">
       <%= link_to destroy_user_session_path , method: :delete do %>
         <div class="flex-column mx-3 text-center">
-          <i class="fas fa-sign-out-alt fa-2x"></i>
-          <p class="text-nowrap mb-0">ログアウト</p>
+          <p class="text-nowrap">ログアウト</p>
         </div>
       <% end %>
     </div>
   <% else %>
-    <div class="navbar-nav ml-auto d-block d-lg-none">
+    <div class="navbar-nav ml-auto d-block d-lg-none header-item_in">
       <%= link_to new_user_registration_path do %>
         <div class="flex-column text-center">
-          <i class="fas fa-user-plus fa-2x"></i>
-          <p class="text-nowrap mb-0">新規登録</p>
+          <p class="text-nowrap">新規登録</p>
         </div>
       <% end %>
     </div>
-    <div class="navbar-nav d-block d-lg-none">
+    <div class="navbar-nav d-block d-lg-none header-item_out">
       <%= link_to users_guest_sign_in_path, method: :post do %>
-        <div class="btn btn-dark btn-sm mx-2">
-          <p>ゲストログイン</p>
+        <div class="flex-column mx-3 text-center">
+          <p class="text-nowrap">ゲストログイン</p>
         </div>
       <% end %>
     </div>
@@ -49,35 +46,32 @@
     </ul>
   </div>
   <% if user_signed_in? %>
-    <div class="navbar-nav mr-auto d-none d-lg-block">
+    <div class="navbar-nav mr-auto d-none d-lg-block header-item_in">
       <%= link_to mypage_users_path do %>
         <div class="flex-column mx-3 text-center">
-          <i class="fas fa-user fa-2x"></i>
-          <p class="text-nowrap mb-0">マイページ</p>
+          <p class="text-nowrap">マイページ</p>
         </div>
       <% end %>
     </div>
-    <div class="navbar-nav mr-auto d-none d-lg-block">
+    <div class="navbar-nav mr-auto d-none d-lg-block header-item_out">
       <%= link_to destroy_user_session_path , method: :delete do %>
         <div class="flex-column mx-3 text-center">
-          <i class="fas fa-sign-out-alt  fa-2x"></i>
-          <p class="text-nowrap mb-0">ログアウト</p>
+          <p class="text-nowrap">ログアウト</p>
         </div>
       <% end %>
     </div>
   <% else %>
-    <div class="navbar-nav mr-auto d-none d-lg-block">
+    <div class="navbar-nav mr-auto d-none d-lg-block header-item_in">
       <%= link_to new_user_registration_path do %>
         <div class="flex-column mx-3 text-center">
-          <i class="fas fa-user-plus fa-2x"></i>
-          <p class="text-nowrap mb-0">新規登録</p>
+          <p class="text-nowrap">新規登録</p>
         </div>
       <% end %>
     </div>
-    <div class="navbar-nav mr-auto d-none d-lg-block">
+    <div class="navbar-nav mr-auto d-none d-lg-block header-item_out">
       <%= link_to users_guest_sign_in_path ,method: :post do %>
-        <div class="btn btn-dark">
-          <p>ゲストログイン</p>
+        <div class="flex-column mx-3 text-center">
+          <p class="text-nowrap">ゲストログイン</p>
         </div>
       <% end %>
     </div>

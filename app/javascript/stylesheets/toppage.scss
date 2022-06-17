@@ -7,6 +7,16 @@
   max-height: 50px;
 }
 
+.header-item{
+  &_in{
+  background-color: #fad4d4e0;
+  border-radius: 100%;
+  }
+  &_out{
+  background-color: #f78686;
+  border-radius: 100%;
+  }
+}
 //footer
 footer {
   background-color: #f78686;
