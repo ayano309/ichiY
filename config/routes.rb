@@ -51,7 +51,7 @@ Rails.application.routes.draw do
       get 'mypage/reservation', to: 'users#user_reservation'
     end
   end
-  resources :reservations, only: %i[index create]
+  resources :reservations, only: %i[index new create]
   post 'reservations/confirm'
   post 'reservations/back'
   resources :contacts, only: %i[index create]
