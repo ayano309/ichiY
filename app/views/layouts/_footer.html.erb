@@ -23,7 +23,7 @@
 
         <% end %>
       </div>
-      <%= link_to "管理者の方はこちら" ,new_admin_session_path,class: "btn btn-outline-secondary mx-auto d-block "%>
+      <%= link_to "管理者(ゲスト)" ,dashboard_guest_sign_in_path,class: "btn btn-dark mx-auto d-block ", method: :post %>
       <div class="text-center footer-text">
 
         <%= link_to "利用規約", terms_path, class:"footer-text" %> / 

@@ -44,10 +44,10 @@ class User < ApplicationRecord
   scope :search_information, lambda { |keyword|
     where('name LIKE :keyword OR id LIKE :keyword OR email LIKE :keyword OR phone LIKE :keyword', keyword: "%#{keyword}%")
   }
+  
   # 退会フラグ
-  def switch_flg(column_of_obj)
-    column_of_obj ? false : true
-  end
+  extend SwitchFlg
+  
 
   #ゲストログイン
   def self.guest

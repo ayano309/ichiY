@@ -23,7 +23,7 @@ class Dashboard::UsersController < ApplicationController
   # 論理削除
   def destroy
     user = User.find(params[:id])
-    # userの退会フラグを渡す
+    #switch_flgメソッドは、与えられた引数によってtrueまたはfalseを返す。
     deleted_flg = User.switch_flg(user.deleted_flg)
     user.update(deleted_flg: deleted_flg)
     redirect_to dashboard_users_path

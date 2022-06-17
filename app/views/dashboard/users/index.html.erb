@@ -1,50 +1,57 @@
-<div class="w-80 content">
-
-  <h1>顧客一覧</h1>
-  <div class="w-75">
-    <%= form_with url: dashboard_users_path, method: :get, local: true do |f| %>
-      <div class="d-flex flex-inline form-group">
-        <div class="d-flex align-items-center">
-          ID・氏名など
-        </div>
-        <%= f.text_field :keyword, value: @keyword, class: "text" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="my-3">
+        <h2>顧客一覧</h2>
       </div>
-      <%= f.submit "検索", class: "btn btn-secondary d-block mx-auto" %>
-    <% end %>
-  </div>
-
-  <table class="table mt-5">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">名前</th>
-        <th scope="col">メールアドレス</th>
-        <th scope="col">電話番号</th>
-        <th scope="col">予約履歴</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
-      <tr>
-        <th scope="row"><%= user.id %></td>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.phone %></td>
-        <td><%=link_to "予約履歴" ,dashboard_user_path(user) ,class: "btn btn-log btn-sm mt-0"%></td>
-        <td>
-          <%= form_with model: user, url: dashboard_user_path(user), local: true, method: :delete do |f| %>
-            <% if user.deleted_flg %>
-              <%= f.submit "復帰", class: "btn btn-success" %>
-            <% else %>
-              <%= f.submit "削除", class: "btn btn-danger" %>
+      <div class="w-100">
+        <%= form_with url: dashboard_users_path, method: :get, local: true do |f| %>
+          <div class="d-flex flex-inline form-group">
+            <div class="d-flex align-items-center">
+              ID・氏名など
+            </div>
+            <%= f.text_field :keyword, value: @keyword, class: "text" %>
+          </div>
+          <%= f.submit "検索", class: "btn btn-secondary d-block mx-auto" %>
+        <% end %>
+      </div>
+      <div class="table-responsive">
+        <table class="table mt-5">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>名前</th>
+              <th>メールアドレス</th>
+              <th>電話番号</th>
+              <th>予約履歴</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <th><%= user.id %></td>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.phone %></td>
+              <td><%=link_to "予約履歴" ,dashboard_user_path(user) ,class: "btn btn-log btn-sm mt-0"%></td>
+              <td>
+              <% if user.name != "guestuser" %>
+                <%= form_with model: user, url: dashboard_user_path(user), local: true, method: :delete do |f| %>
+                  <% if user.deleted_flg %>
+                    <%= f.submit "復帰", class: "btn btn-success" %>
+                  <% else %>
+                    <%= f.submit "削除", class: "btn btn-danger" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              </td>
+            </tr>
             <% end %>
-          <% end %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <%= paginate @users%>
+          </tbody>
+        </table>
+        <%= paginate @users%>
+      </div>
+    </div>
+  </div>
 </div>
