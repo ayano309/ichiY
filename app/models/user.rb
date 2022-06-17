@@ -52,7 +52,7 @@ class User < ApplicationRecord
   #ゲストログイン
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|  # ゲストログイン用
-      user.name = 'ゲスト'
+      user.name = 'guestuser'
       user.phone = '00000000000'
       user.password = 'password'
       user.password_confirmation = 'password'
