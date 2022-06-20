@@ -16,10 +16,10 @@
       <%= reservation.reservation_status_i18n %>
     </td>
     <td class="text-nowrap">
-      <%= link_to dashboard_reservation_path(reservation), class: "btn btn-info btn-sm" do %>
+      <%= link_to dashboard_reservation_path(reservation), class: "btn btn-detail btn-sm" do %>
         詳細
       <% end%>
-      <%= link_to edit_dashboard_reservation_path(reservation), class: "btn btn-success btn-sm" do %>
+      <%= link_to edit_dashboard_reservation_path(reservation), class: "btn btn-outline-success btn-sm" do %>
         変更
       <% end%>
     </td>
