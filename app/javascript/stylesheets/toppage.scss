@@ -51,15 +51,18 @@ footer {
   &_detail{
     border-radius: 15px;
     margin: 20px 0;
-    background: #f9fcfb;
+    padding: 60px;
+    background: #fad4d4e0;
     border: 5px solid #fad4d4e0;
     font-size: 1rem;
-
+    font-weight: bold;
+    font-family: 'Murecho', sans-serif;
   @media screen and (max-width: 767px) {
     font-size: 0.5rem;
   }
   }
 }
+
 
 //shop-image(about)
 .main-visual{/*親div*/
