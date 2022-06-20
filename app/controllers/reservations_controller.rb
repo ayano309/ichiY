@@ -2,7 +2,6 @@ class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
     @items = Item.all
-    
   end
 
   def new
@@ -19,6 +18,7 @@ class ReservationsController < ApplicationController
   end
   
   def back
+    @reservations = Reservation.all
     @items = Item.all
     @reservation = Reservation.new(reservation_params)
     render :index
@@ -31,6 +31,7 @@ class ReservationsController < ApplicationController
       redirect_to root_path, notice: 'ご予約が完了しました。'
     else
       flash.now[:error] = 'ご予約ができませんでした。'
+      @reservations = Reservation.all
       @items = Item.all
       render :index
     end
