@@ -74,4 +74,9 @@ class Reservation < ApplicationRecord
   def count_items
     Reservation.all.sum(:number_of_items)
   end
+
+  #raketask
+  scope :today_reservation_ago, -> { where("reservation_day <= ?", Time.zone.today) }
+  scope :status_visiting, -> { where(reservation_status: 'visiting') }
+  scope :status_update_visited, -> { update(reservation_status: 'visited') }
 end
