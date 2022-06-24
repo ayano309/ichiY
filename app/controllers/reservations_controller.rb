@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
       ReservationMailer.email(@reservation).deliver_now
-      redirect_to root_path, notice: 'ご予約が完了しました。'
+      redirect_to reservations_thanks_path, notice: 'ご予約が完了しました。'
     else
       flash.now[:error] = 'ご予約ができませんでした。'
       @reservations = Reservation.all
@@ -36,6 +36,8 @@ class ReservationsController < ApplicationController
       render :index
     end
   end
+
+  def tahnks; end
 
   private
 

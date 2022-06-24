@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   resources :reservations, only: %i[index new create]
   post 'reservations/confirm'
   post 'reservations/back'
+  get  'reservations/thanks'
   resources :contacts, only: %i[index create]
   post 'contacts/confirm'
   post 'contacts/back'
