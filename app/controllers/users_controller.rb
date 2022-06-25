@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
-  before_action :ensure_guest_user, only: [:edit_password, :update_password]
+  before_action :ensure_guest_user, only: %i[edit_password update_password]
 
   def show; end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     deleted_flg = User.switch_flg(@user.deleted_flg)
     @user.update(deleted_flg: deleted_flg)
-    flash[:notice] = "退会処理を実行いたしました"
+    flash[:notice] = '退会処理を実行いたしました'
     redirect_to root_path
   end
 
@@ -50,8 +50,8 @@ class UsersController < ApplicationController
 
   def ensure_guest_user
     @user = current_user
-    if @user.name == "guestuser"
-      redirect_to root_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    if @user.name == 'guestuser'
+      redirect_to root_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
-  end  
+  end
 end

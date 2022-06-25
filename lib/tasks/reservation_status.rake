@@ -5,6 +5,5 @@ namespace :reservation_status do
     # @reservation_day = Reservation.find_by(reservation_day: Time.zone.today)
 
     @reservation = Reservation.today_reservation_ago.status_visiting.status_update_visited
-    
   end
 end

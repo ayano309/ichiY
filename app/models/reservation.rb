@@ -33,8 +33,8 @@ class Reservation < ApplicationRecord
   validates :reservation_time, presence: true
   validates :reservation_status, presence: true
 
-  #新規予約作成時のみ過去日付を選択できないようにon: :createにする
-  #あとでステータス変更するため
+  # 新規予約作成時のみ過去日付を選択できないようにon: :createにする
+  # あとでステータス変更するため
   validate :date_before_today, on: :create
   validate :reservation_day_not_saturday
   validate :reservation_day_not_wednesday
@@ -75,8 +75,8 @@ class Reservation < ApplicationRecord
     Reservation.all.sum(:number_of_items)
   end
 
-  #raketask
-  scope :today_reservation_ago, -> { where("reservation_day <= ?", Time.zone.today) }
+  # raketask
+  scope :today_reservation_ago, -> { where('reservation_day <= ?', Time.zone.today) }
   scope :status_visiting, -> { where(reservation_status: 'visiting') }
   scope :status_update_visited, -> { update(reservation_status: 'visited') }
 end

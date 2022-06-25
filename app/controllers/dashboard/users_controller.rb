@@ -23,17 +23,19 @@ class Dashboard::UsersController < ApplicationController
   # 論理削除
   def destroy
     user = User.find(params[:id])
-    #switch_flgメソッドは、与えられた引数によってtrueまたはfalseを返す。
+    # switch_flgメソッドは、与えられた引数によってtrueまたはfalseを返す。
     deleted_flg = User.switch_flg(user.deleted_flg)
     user.update(deleted_flg: deleted_flg)
-    flash[:notice] = "退会処理を実行いたしました"
+    flash[:notice] = '退会処理を実行いたしました'
     redirect_to dashboard_users_path
   end
+
   private
+
   def ensure_guest_user
     @user = User.find(params[:id])
-    if @user.name == "guestuser"
-      redirect_to root_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    if @user.name == 'guestuser'
+      redirect_to root_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
-  end  
+  end
 end
