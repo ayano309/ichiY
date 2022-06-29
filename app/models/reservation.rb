@@ -39,6 +39,8 @@ class Reservation < ApplicationRecord
   validate :reservation_day_not_saturday
   validate :reservation_day_not_wednesday
 
+  include Latest
+
   enum reservation_time: {
     '11:00': 0,
     '11:15': 1,

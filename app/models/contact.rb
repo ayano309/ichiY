@@ -20,6 +20,8 @@ class Contact < ApplicationRecord
   validates :category, presence: true
   validates :status, presence: true
 
+  include Latest
+
   enum category: {
     reserved: 0,
     item: 1,
