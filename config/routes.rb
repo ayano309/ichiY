@@ -1,4 +1,7 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq' if Rails.env.development?
   root 'home#top'
   get 'terms', to: 'home#terms'
   get 'privacy', to: 'home#privacy'
