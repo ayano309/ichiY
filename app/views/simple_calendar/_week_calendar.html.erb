@@ -7,6 +7,7 @@
       <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
     <% end %>
     <%= link_to t('simple_calendar.next', default: '➡︎'), calendar.url_for_next_view %>
+    <p class="text-danger">水曜日・土曜日は定休日です</p>
   </div>
 
   <table class="table table-striped">
