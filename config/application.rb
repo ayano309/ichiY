@@ -22,5 +22,6 @@ module IchigoDaihuku
     # config.eager_load_paths << Rails.root.join("extras")
     # バリデーションエラーが発生したときに'field_with_errors'というclassを付加しない
     config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
+    config.active_job.queue_adapter = :sidekiq
   end
 end
