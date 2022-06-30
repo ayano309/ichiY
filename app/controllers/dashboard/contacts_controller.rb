@@ -1,6 +1,6 @@
 class Dashboard::ContactsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_contact, only: %w[show update destroy]
+  before_action :set_contact, only: %i[show update destroy]
   layout 'dashboard/dashboard'
   def index
     @contacts = Contact.order(created_at: 'desc').page(params[:page])
