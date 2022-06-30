@@ -20,15 +20,18 @@ class Contact < ApplicationRecord
   validates :category, presence: true
   validates :status, presence: true
 
+  #一週間分の予約とお問い合わせ
   include Latest
 
+  #予約について、商品について、お店について、その他
   enum category: {
     reserved: 0,
     item: 1,
     shop: 2,
     others: 3
   }
-
+  
+  #お問い合わせに対して対応したか
   enum status: {
     unsupported: 0,
     closed: 1
