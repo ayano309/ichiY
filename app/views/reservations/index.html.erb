@@ -6,7 +6,7 @@
       <p class="text-center text-danger">季節により1種類〜3種類の苺です<br>
       （ご指定頂けませんのでご了承ください）</p>
       <tbody>
-        <% @items.each do |item| %>
+        <!--<% @items.each do |item| %>
         <tr>
           <td>
             <%= image_tag item.get_image(100, 100)%>
@@ -15,7 +15,22 @@
           <td><%= item.price.to_s(:delimited) %>円</td>
         </tr>
         <br>
-        <% end %>
+        <% end %>-->
+        <tr>
+          <td>
+            <%= image_tag "ichigo-image1.jpeg",size: "100x100"%>
+          </td>
+          <td>あまおう</td>
+          <td>330円</td>
+        </tr>
+        <br>
+        <tr>
+          <td>
+            <%= image_tag "create-ichigo.jpeg",size: "100x100"%>
+          </td>
+          <td>あかねっ娘</td>
+          <td>315円</td>
+        </tr>
       </tbody>
     </div>
   </div>

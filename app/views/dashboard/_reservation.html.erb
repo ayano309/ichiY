@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="my-3">
+    <h3>新着予約</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col" class="text-nowrap">予約日</th>
+              <th scope="col" class="text-nowrap">時間</th>
+              <th scope="col" class="text-nowrap">名前</th>
+              <th scope="col" class="text-nowrap">予約数</th>
+              <th scope="col" class="text-nowrap">ステータス</th>
+              <th scope="col" class="text-nowrap"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "dashboard/reservations/reservation", reservations: @reservations %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

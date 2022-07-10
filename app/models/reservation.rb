@@ -40,7 +40,7 @@ class Reservation < ApplicationRecord
   validate :reservation_day_not_wednesday
 
   include Latest
-
+  #予約時間
   enum reservation_time: {
     '11:00': 0,
     '11:15': 1,
@@ -50,13 +50,14 @@ class Reservation < ApplicationRecord
     '12:15': 5,
     '12:30': 6
   }
-
+  #予約ステータス(予約、受取済、キャンセル)
   enum reservation_status: {
     visiting: 0,
     visited: 1,
     cancel: 2
   }
 
+  #validation(過去の日、定休日)
   def date_before_today
     errors.add(:reservation_day, 'は過去の日付は選択できません') if reservation_day < Time.zone.today
   end
@@ -69,15 +70,13 @@ class Reservation < ApplicationRecord
     errors.add(:reservation_day, 'は定休日(水曜日・土曜日)以外を選択してください') if reservation_day.wednesday?
   end
 
+  #simple_calender
   def start_time
     reservation_day.to_time.to_datetime
   end
 
-  def count_items
-    Reservation.all.sum(:number_of_items)
-  end
 
-  # raketask
+  # raketask(予約日過ぎたもので予約ステータス全てを受取済に変更する)
   scope :today_reservation_ago, -> { where('reservation_day <= ?', Time.zone.today) }
   scope :status_visiting, -> { where(reservation_status: 'visiting') }
   scope :status_update_visited, -> { update(reservation_status: 'visited') }
