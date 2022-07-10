@@ -1,21 +1,21 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: 5
+  
   timeout: 5000
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: ichigo-daihuku_development
+  database: ichigo_daihuku_development
 
 test:
   <<: *default
-  database: ichigo-daihuku_test
+  database: ichigo_daihuku_test
 
 production:
   <<: *default
-  database: ichigo-daihuku_production
-  username: ichigo-daihuku
+  database: ichigo_daihuku_production
+  username: ichigo_daihuku
   password: <%= ENV['DATABASE_PASSWORD'] %>
   host: <%= ENV['DATABASE_HOST'] %>
