@@ -7,15 +7,15 @@ default: &default
 
 development:
   <<: *default
-  database: ichigodaihuku_development
+  database: ichigo-daihuku_development
 
 test:
   <<: *default
-  database: ichigodaihuku_test
+  database: ichigo-daihuku_test
 
 production:
   <<: *default
-  database: ichigodaihuku_production
-  username: ichigodaihuku
+  database: ichigo-daihuku_production
+  username: ichigo-daihuku
   password: <%= ENV['DATABASE_PASSWORD'] %>
   host: <%= ENV['DATABASE_HOST'] %>
