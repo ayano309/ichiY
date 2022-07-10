@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
-  before_action :ensure_guest_user, only: %i[edit_password update_password]
+  before_action :ensure_guest_user, only: %i[show edit_password update_password]
 
   def show; end
 
