@@ -1,0 +1,16 @@
+{
+  "name": "ichigo-daihuku",
+  "description": "This is reservation service",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/ayano309/ichigo-daihuku.git",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
